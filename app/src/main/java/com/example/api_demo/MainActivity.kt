@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         observeViewModel()
 
         // Replace with your actual API key
-        viewModel.fetchNews("8bb3971ee6294ae2a2d2f00f6d2492cb")
+        viewModel.fetchNews("YOUR_API_KEY")
     }
 
     private fun setupRecyclerView() {
