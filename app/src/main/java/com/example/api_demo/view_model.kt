@@ -1,5 +1,6 @@
 package com.example.api_demo
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,9 +19,20 @@ class NewsViewModel : ViewModel() {
 
             repository.getTopHeadlines(apiKey).fold(
                 onSuccess = { articles ->
-                    _newsState.value = NewsState.Success(articles)
+                    val filteredArticles = articles.filter { article ->
+                        val invalidContent = "[Removed]"
+                        val isValidTitle = !article.title.isNullOrEmpty() && article.title != invalidContent
+                        val isValidDescription = !article.description.isNullOrEmpty() && article.description != invalidContent
+                        isValidTitle && isValidDescription
+                    }
+                    // Add logging to check the filtered articles
+                    filteredArticles.forEach { article ->
+                        Log.d("NewsViewModel", "Filtered Article: ${article.title}")
+                    }
+                    _newsState.value = NewsState.Success(filteredArticles)
                 },
                 onFailure = { error ->
+                    Log.e("NewsViewModel", "Error fetching news", error)
                     _newsState.value = NewsState.Error(error.message ?: "Unknown error")
                 }
             )
@@ -29,7 +41,7 @@ class NewsViewModel : ViewModel() {
 }
 
 sealed class NewsState {
-    object Loading : NewsState()
+    data object Loading : NewsState()
     data class Success(val articles: List<Article>) : NewsState()
     data class Error(val message: String) : NewsState()
 }

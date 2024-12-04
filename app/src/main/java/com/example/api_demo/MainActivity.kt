@@ -6,6 +6,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import coil.Coil
+import coil.ImageLoader
+import coil.imageLoader
+import coil.util.DebugLogger
 import com.example.api_demo.databinding.ActivityMainBinding
 
 

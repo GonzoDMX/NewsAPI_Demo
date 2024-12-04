@@ -14,6 +14,13 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <ImageView
+            android:id="@+id/articleImageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder_news" />
+
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"

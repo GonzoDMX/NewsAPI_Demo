@@ -9,7 +9,7 @@ data class NewsResponse(
 )
 
 data class Article(
-    val title: String,
+    val title: String?,
     val description: String?,
     val url: String,
     val urlToImage: String?,
