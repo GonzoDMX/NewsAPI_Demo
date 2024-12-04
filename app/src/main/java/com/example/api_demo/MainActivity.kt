@@ -6,10 +6,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import coil.Coil
-import coil.ImageLoader
-import coil.imageLoader
-import coil.util.DebugLogger
 import com.example.api_demo.databinding.ActivityMainBinding
 
 
@@ -26,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setupRecyclerView()
         observeViewModel()
 
-        // Replace with your actual API key
+        // Remplacer-le par votre clé API
         viewModel.fetchNews("YOUR_API_KEY")
     }
 

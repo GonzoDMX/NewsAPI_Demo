@@ -18,6 +18,7 @@
             android:id="@+id/articleImageView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:contentDescription="@string/todo"
             android:scaleType="centerCrop"
             android:src="@drawable/placeholder_news" />
 
